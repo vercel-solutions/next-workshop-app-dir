@@ -4,7 +4,4 @@ module.exports = {
   images: {
     domains: ["lh5.googleusercontent.com"],
   },
-  experimental: {
-    appDir: true,
-  },
 };
