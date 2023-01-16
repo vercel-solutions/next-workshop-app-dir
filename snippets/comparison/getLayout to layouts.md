@@ -3,7 +3,8 @@ Next.js recommended adding a property to Page components to achieve per-page lay
 
 ## Before
 ```jsx
-/* /components/DashboardLayout.js */
+// components/DashboardLayout.js
+
 export default function DashboardLayout({ children }) {
   return (
     <div>
@@ -15,7 +16,8 @@ export default function DashboardLayout({ children }) {
 ```
 
 ```jsx
-/* /pages/dashboard/index.js */
+// pages/dashboard/index.js
+
 import DashboardLayout from '../components/DashboardLayout';
 
 export default function Page() {
@@ -28,7 +30,8 @@ Page.getLayout = function getLayout(page) {
 ```
 
 ```jsx
-/* /pages/_app.js_ */
+// pages/_app.js
+
 export default function MyApp({Component, pageProps}) {
   const Layout = Component.getLayout();
 
@@ -42,14 +45,16 @@ export default function MyApp({Component, pageProps}) {
 
 ## After
 ```jsx
-/* /app/dashboard/page.js */
+// app/dashboard/page.js
+
 export default function Page() {
   return <p>My Page</p>;
 }
 ```
 
 ```jsx
-/* /app/dashboard/DashboardLayout.js */
+// app/dashboard/DashboardLayout.js
+
 'use client';
 
 export default function DashboardLayout({ children }) {
@@ -63,7 +68,8 @@ export default function DashboardLayout({ children }) {
 ```
 
 ```jsx
-/* /app/dashboard/layout.js */
+// app/dashboard/layout.js
+
 import DashboardLayout from './DashboardLayout';
 
 export default function Layout({ children }) {

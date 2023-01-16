@@ -4,6 +4,7 @@ In the pages directory, the next/head React component is used to manage <head> H
 ## Before
 ```jsx
 // pages/posts/[id].js
+
 import Head from 'next/head'
 import {useRouter} from 'next/router'
 
@@ -26,6 +27,7 @@ export default function PostPage() {
 ## After
 ```jsx
 // app/posts/[id]/page.js
+
 export default function PostPage() {
   return (
     <main>
@@ -37,6 +39,7 @@ export default function PostPage() {
 
 ```jsx
 // app/posts/[id]/head.js
+
 export default function Head({params}) {
   return (
     <>

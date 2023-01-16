@@ -9,10 +9,11 @@ We recommend breaking down the migration of a page into two main steps:
 ## Before
 ```jsx
 // pages/index.js
+
 async function getStaticProps() {
   const res = await fetch('https://...');
   const posts = await res.json();
-  
+
   return {
     props: {
       posts
@@ -34,6 +35,7 @@ export default async function Page({posts}) {
 ## After
 ```jsx
 // app/HomePage.js
+
 'use client';
 
 export default function HomePage({ recentPosts }) {
@@ -49,6 +51,7 @@ export default function HomePage({ recentPosts }) {
 
 ```jsx
 // app/page.js
+
 import HomePage from './HomePage';
 
 async function getPosts() {

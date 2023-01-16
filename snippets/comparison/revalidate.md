@@ -3,7 +3,8 @@ In the app directory, data fetching with fetch() can use revalidate, which will 
 
 ## Before
 ```jsx
-// /app/posts.js
+// app/posts.js
+
 export async function getStaticProps() {
   const res = await fetch(`https://.../posts`);
   const data = await res.json();
@@ -23,7 +24,8 @@ export default function Index({ posts }) {
 
 ## After
 ```jsx
-// /app/posts/page.js
+// app/posts/page.js
+
 async function fetchPosts() {
   const res = await fetch(`https://.../posts`, { next: { revalidate: 60 } });
   const data = await res.json();
@@ -37,3 +39,26 @@ export default async function PostList() {
   return <PostList posts={posts} />
 };
 ```
+
+You can also define a revalidate at segment level. The lowest value between `layout`'s revalidate, `page`'s revalidate and requests revalidate, will be used.
+
+```jsx
+// app/posts/page.js
+
+export const revalidate = 30;
+
+async function fetchPosts() {
+  const res = await fetch(`https://.../posts`, { next: { revalidate: 60 } });
+  const data = await res.json();
+
+  return data.posts;
+}
+
+export default async function PostList() {
+  const posts = await fetchPosts();
+
+  return <PostList posts={posts} />
+};
+```
+
+Revalidation will happen at 30 seconds because it is the lower value.

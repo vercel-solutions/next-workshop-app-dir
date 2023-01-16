@@ -6,6 +6,7 @@ Because `/` and `/[token]` are different routes, we can't share content beside `
 
 ```jsx
 // pages/index.js
+
 import api from "../api"
 import TokensList from "../components/TokensList"
 
@@ -28,6 +29,7 @@ function HomePage({tokens}) {
 
 ```jsx
 // pages/[token].js
+
 import api from "../api"
 import TokensList from "../components/TokensList"
 import TokenChart from "../components/TokenChart"
@@ -58,6 +60,7 @@ We can have a `/layout.js` and a `/[token]/page.js` files. The table can live in
 
 ```jsx
 // app/layout.js
+
 import api from "../api"
 import TokensList from "../components/TokensList"
 
@@ -75,6 +78,7 @@ function HomeLayout({tokens, children}) {
 
 ```jsx
 // app/[token]/page.js
+
 import api from "../api"
 import TokenChart from "../components/TokenChart"
 

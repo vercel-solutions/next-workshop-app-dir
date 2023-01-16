@@ -4,6 +4,7 @@ In the pages directory, getServerSideProps is used to fetch data on the server a
 ## Before
 ```jsx
 // pages/dashboard.js
+
 export async function getServerSideProps() {
   const res = await fetch(`https://.../data`);
   const data = await res.json();
@@ -19,6 +20,7 @@ export default function Dashboard({ data }) {
 ## After
 ```jsx
 // app/dashboard.js
+
 async function fetchData() {
   const res = await fetch(`https://.../data`, { cache: 'no-store' });
   const data = await res.json();

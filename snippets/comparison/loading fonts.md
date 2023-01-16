@@ -4,6 +4,7 @@
 ## Before
 ```jsx
 // pages/_app.js
+
 import Head from 'next/head';
 
 export default function MyApp({Component, pageProps}) {
@@ -24,6 +25,7 @@ export default function MyApp({Component, pageProps}) {
 ## After
 ```jsx
 // app/layout.js
+
 import { Inter } from '@next/font/google';
 
 const inter = Inter({ subsets: ['latin'] })
@@ -42,6 +44,7 @@ Automatically self-host any Google Font. Fonts are included in the deployment an
 ### Using local fonts
 ```jsx
 // app/layout.js
+
 import localFont from '@next/font/local';
 
 const myFont = localFont({ src: './my-font.woff2' });

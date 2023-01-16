@@ -7,6 +7,7 @@ In the app directory the config.dynamicParams property controls how params outsi
 ## Before
 ```jsx
 // pages/posts/[id].js
+
 export async function getStaticPaths() {
   return {
     paths: [...],
@@ -26,6 +27,7 @@ export default function Post({ post }) {
 ## After
 ```jsx
 // app/posts/[id]/page.js
+
 export const dynamicParams = true;
 
 export async function generateStaticParams() {

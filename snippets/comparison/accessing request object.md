@@ -7,6 +7,7 @@ The app directory exposes new read-only functions to retrieve request data:
 ## Before
 ```jsx
 // pages/index.js
+
 export async function getServerSideProps({ req, query }) {
   const authHeader = req.getHeaders()['authorization'];
   const theme = req.cookies['theme'];
@@ -21,6 +22,8 @@ export default function Page(props) {
 
 ## After
 ```jsx
+// app/page.js
+
 import { cookies, headers } from 'next/headers';
 
 async function getData() {

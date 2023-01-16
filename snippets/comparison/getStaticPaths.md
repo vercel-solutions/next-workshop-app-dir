@@ -4,6 +4,7 @@ In the pages directory, the getStaticPaths function is used to define the dynami
 ## Before
 ```jsx
 // pages/posts/[id].js
+
 export async function getStaticPaths() {
   return {
     paths: [{ params: { id: '1' } }, { params: { id: '2' } }],
@@ -26,6 +27,7 @@ export default function Post({ post }) {
 ## After
 ```jsx
 // app/posts/[id]/page.js
+
 export async function generateStaticParams() {
   return [{ id: '1' }, { id: '2' }]
 }

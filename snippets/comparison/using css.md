@@ -1,11 +1,11 @@
 # CSS in the App Directory
-In the pages directory, global stylesheets are restricted to only `pages/_app.js`. 
+In the pages directory, global stylesheets are restricted to only `pages/_app.js`.
 
 ## Before
 To add a stylesheet to your application, import the CSS file within `pages/_app.js`.
 
 ```css
-// styles/globals.css
+/* styles/globals.css */
 
 body {
   font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
@@ -31,6 +31,8 @@ export default function MyApp({ Component, pageProps }) {
 With the app directory, this restriction has been lifted. Global styles can be added to any layout, page, or component.
 
 ```css
+/* app/globals.css */
+
 body {
   padding: 20px 20px 60px;
   max-width: 680px;

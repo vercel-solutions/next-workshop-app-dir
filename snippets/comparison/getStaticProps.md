@@ -4,6 +4,7 @@ In the pages directory, the getStaticProps function is used to pre-render a page
 ## Before
 ```jsx
 // pages/dashboard.js
+
 export async function getStaticProps() {
   const res = await fetch(`https://.../data`);
   const data = await res.json();
@@ -19,6 +20,7 @@ export default function Index({ data }) {
 ## After
 ```jsx
 // app/dashboard.js
+
 async function fetchData() {
   const res = await fetch(`https://.../data`);
   const data = await res.json();

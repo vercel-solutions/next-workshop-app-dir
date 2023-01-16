@@ -3,7 +3,8 @@ If you have an existing _app or _document file, you can copy the contents (e.g. 
 
 ## Before
 ```jsx
-/* /pages/_app.js */
+// pages/_app.js
+
 export default function App({ Component, pageProps }) {
   return (
     <div>
@@ -15,7 +16,8 @@ export default function App({ Component, pageProps }) {
 ```
 
 ```jsx
-/* /pages/_document_.js */
+// pages/_document_.js
+
 import { Html, Head, Main, NextScript } from 'next/document'
 
 export default function Document() {
@@ -33,7 +35,8 @@ export default function Document() {
 
 ## After
 ```jsx
-/* /app/layout.js */
+// app/layout.js
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
