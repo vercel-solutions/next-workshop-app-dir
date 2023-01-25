@@ -31,7 +31,7 @@ const StoreCard: React.FC<Props> = ({store}) => {
         >
           {store.description}
         </p>
-        <p style={{color: "#999"}}>{store.location.address}</p>
+        <p style={{color: "#999"}}>{store.address}</p>
       </div>
     </div>
   );

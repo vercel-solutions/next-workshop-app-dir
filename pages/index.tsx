@@ -11,7 +11,7 @@ type Props = {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const stores = await api.list();
+  const stores = await api.store.list();
 
   return {
     props: {stores},
