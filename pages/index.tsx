@@ -3,7 +3,7 @@ import type {Store} from "../types";
 
 import Link from "next/link";
 
-import api from "../api/server";
+import api from "../api";
 import StoreCard from "../components/StoreCard";
 
 type Props = {
