@@ -4,8 +4,7 @@ import type {Schedule as ISchedule, Store} from "../../types";
 import {useEffect, useState} from "react";
 import Link from "next/link";
 
-import serverApi from "../../api/server";
-import clientApi from "../../api/client";
+import api from "../../api";
 import StoreCard from "../../components/StoreCard";
 import Schedule from "../../components/Schedule";
 
@@ -14,7 +13,7 @@ type Props = {
 };
 
 export const getStaticProps: GetStaticProps<Props, {store: string}> = async ({params}) => {
-  const store = await serverApi.store.fetch(params?.store!);
+  const store = await api.store.fetch(params?.store!);
 
   return {
     props: {store},
@@ -35,8 +34,8 @@ const StorePage: NextPage<Props> = ({store}) => {
   useEffect(() => {
     const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
-    clientApi.visitors.fetch(store.id).then(setVisitors);
-    clientApi.schedule.fetch(store.id, timezone).then(setSchedule);
+    api.store.visitors.fetch(store.id).then(setVisitors);
+    api.store.schedule.fetch(store.id, timezone).then(setSchedule);
   }, [store.id]);
 
   return (

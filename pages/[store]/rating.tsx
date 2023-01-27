@@ -4,8 +4,7 @@ import type {Store} from "../../types";
 import {useEffect, useState} from "react";
 import Link from "next/link";
 
-import serverApi from "../../api/server";
-import clientApi from "../../api/client";
+import api from "../../api";
 import StoreCard from "../../components/StoreCard";
 import Rating from "../../components/Rating";
 
@@ -14,7 +13,7 @@ type Props = {
 };
 
 export const getStaticProps: GetStaticProps<Props, {store: string}> = async ({params}) => {
-  const store = await serverApi.store.fetch(params?.store!);
+  const store = await api.store.fetch(params?.store!);
 
   return {
     props: {store},
@@ -32,16 +31,16 @@ const StoreRatingPage: NextPage<Props> = ({store}) => {
   const [visitors, setVisitors] = useState<number>(0);
   const [rating, setRating] = useState<number>(0);
 
-  function handleRatingChange(value: number) {
-    clientApi.rating.update(store.id, value).then((value) => {
-      setRating(value);
-      alert("Thank you for your feedback!");
-    });
+  async function handleRatingChange(value: number) {
+    const rating: number = await api.store.rating.update(store.id, value);
+
+    setRating(rating);
+    alert("Thank you for your feedback!");
   }
 
   useEffect(() => {
-    clientApi.visitors.fetch(store.id).then(setVisitors);
-    clientApi.rating.fetch(store.id).then(setRating);
+    api.store.visitors.fetch(store.id).then(setVisitors);
+    api.store.rating.fetch(store.id).then(setRating);
   }, [store.id]);
 
   return (
