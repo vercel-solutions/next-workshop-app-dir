@@ -7,6 +7,7 @@ import Link from "next/link";
 import api from "../../api";
 import StoreCard from "../../components/StoreCard";
 import Rating from "../../components/Rating";
+import Visitors from "../../components/Visitors";
 
 type Props = {
   store: Store;
@@ -46,7 +47,7 @@ const StoreRatingPage: NextPage<Props> = ({store}) => {
   return (
     <div>
       <StoreCard store={store} />
-      <p>Visitors: {visitors}</p>
+      <Visitors>{visitors}</Visitors>
       <Rating value={rating} onChange={handleRatingChange} />
       <hr />
       <nav>

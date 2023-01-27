@@ -7,6 +7,7 @@ import Link from "next/link";
 import api from "../../api";
 import StoreCard from "../../components/StoreCard";
 import Schedule from "../../components/Schedule";
+import Visitors from "../../components/Visitors";
 
 type Props = {
   store: Store;
@@ -41,7 +42,7 @@ const StorePage: NextPage<Props> = ({store}) => {
   return (
     <div>
       <StoreCard store={store} />
-      <p>Visitors: {visitors}</p>
+      <Visitors>{visitors}</Visitors>
       <Schedule schedule={schedule} />
       <hr />
       <nav>
