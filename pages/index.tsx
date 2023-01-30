@@ -5,6 +5,7 @@ import Link from "next/link";
 
 import api from "../api";
 import StoreCard from "../components/StoreCard";
+import Stack from "../components/Stack";
 
 type Props = {
   stores: Store[];
@@ -20,15 +21,13 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 
 const HomePage: NextPage<Props> = ({stores}) => {
   return (
-    <ul>
+    <Stack>
       {stores.map((store) => (
-        <li key={store.id}>
-          <Link href={`/${store.id}`}>
-            <StoreCard store={store} />
-          </Link>
-        </li>
+        <Link key={store.id} href={`/${store.id}`}>
+          <StoreCard store={store} />
+        </Link>
       ))}
-    </ul>
+    </Stack>
   );
 };
 

@@ -8,6 +8,7 @@ import api from "../../api";
 import StoreCard from "../../components/StoreCard";
 import Schedule from "../../components/Schedule";
 import Visitors from "../../components/Visitors";
+import Stack from "../../components/Stack";
 
 type Props = {
   store: Store;
@@ -40,15 +41,17 @@ const StorePage: NextPage<Props> = ({store}) => {
   }, [store.id]);
 
   return (
-    <div>
+    <Stack>
       <StoreCard store={store} />
       <Visitors>{visitors}</Visitors>
       <Schedule schedule={schedule} />
-      <hr />
-      <nav>
-        <Link href={`/${store.id}/rating`}>rating</Link>
+      <nav
+        style={{borderTop: "1px solid var(--dark-500)", paddingTop: 24, display: "flex", gap: 24}}
+      >
+        <Link href={`/${store.id}`}>☀ schedule</Link>
+        <Link href={`/${store.id}/rating`}>★ rating</Link>
       </nav>
-    </div>
+    </Stack>
   );
 };
 

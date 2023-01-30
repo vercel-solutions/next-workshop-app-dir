@@ -1,5 +1,10 @@
 import React from "react";
 import Image from "next/legacy/image";
+import Link from "next/link";
+
+import Card from "./Card";
+import Stack from "./Stack";
+import Text from "./Text";
 
 interface Props {
   children: React.ReactNode;
@@ -7,71 +12,59 @@ interface Props {
 
 const Page: React.FC<Props> = ({children}) => {
   return (
-    <div
+    <Stack
+      alignItems="stretch"
       style={{
         minHeight: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        backgroundColor: "white",
+        maxWidth: "56rem",
+        width: "100%",
+        margin: "auto",
+        padding: 24,
       }}
     >
-      <main
-        style={{
-          flex: 1,
-          display: "flex",
-          flexDirection: "column",
-        }}
-      >
-        <div
-          style={{
-            textAlign: "center",
-            padding: 24,
-            borderBottom: "1px solid #eaeaea",
-            boxShadow: "0 0 15px 0 rgb(0 0 0 / 10%)",
-          }}
-        >
-          <h1>Welcome to ACME Stores!</h1>
-          <p>Find all the ACME Stores around</p>
-        </div>
-        <div
-          style={{
-            padding: 24,
-            flex: 1,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            maxWidth: 1024,
-            margin: "auto",
-            width: "100%",
-          }}
-        >
-          {children}
-        </div>
+      <header>
+        <Card>
+          <Link href="/">
+            <Stack alignItems="center" direction="row" gap={6} padding={12}>
+              <Image alt="ACME stores" height={32} src="/acme.svg" width={32} />
+              <Text color="white" size={16} weight="bold">
+                ACME Stores
+              </Text>
+            </Stack>
+          </Link>
+        </Card>
+      </header>
+
+      <main style={{flex: 1}}>
+        <Card>
+          <Stack
+            alignItems="center"
+            justifyContent="center"
+            padding={24}
+            style={{
+              width: "100%",
+              flex: 1,
+            }}
+          >
+            {children}
+          </Stack>
+        </Card>
       </main>
 
-      <footer
-        style={{
-          padding: 48,
-          borderTop: "1px solid #eaeaea",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          backgroundColor: "#fafafa",
-        }}
-      >
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          rel="noopener noreferrer"
-          style={{display: "flex", alignItems: "center", justifyContent: "center"}}
-          target="_blank"
-        >
-          Powered by{" "}
-          <span style={{height: 16, marginLeft: 12}}>
-            <Image alt="Vercel Logo" height={16} src="/vercel.svg" width={72} />
-          </span>
-        </a>
+      <footer>
+        <Card>
+          <Stack alignItems="center" direction="row" justifyContent="space-between" padding={12}>
+            <Stack alignItems="center" direction="row" gap={4}>
+              <Text>By</Text> <Image alt="Vercel Logo" height={16} src="/vercel.svg" width={72} />
+            </Stack>
+            <Stack alignItems="center" direction="row" gap={4}>
+              <Image alt="Next.js logo" height={32} src="/nextjs.svg" width={32} />
+              <p>App Directory workshop</p>
+            </Stack>
+          </Stack>
+        </Card>
       </footer>
-    </div>
+    </Stack>
   );
 };
 

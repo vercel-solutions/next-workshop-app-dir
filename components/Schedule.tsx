@@ -1,18 +1,27 @@
 import type {Schedule} from "../types";
 
+import Stack from "./Stack";
+import Text from "./Text";
+
 type Props = {
   schedule: Schedule[];
 };
 
 const Schedule: React.FC<Props> = ({schedule}) => {
   return (
-    <ul>
+    <Stack gap={4}>
       {schedule.map(({date, start, end}) => (
-        <li key={date}>
-          {date}: {start} - {end}
-        </li>
+        <Stack key={date} direction="row" gap={4}>
+          <Text color="light" weight="bold">
+            {date}
+          </Text>
+          :
+          <Text color="text-500">
+            {start} - {end}
+          </Text>
+        </Stack>
       ))}
-    </ul>
+    </Stack>
   );
 };
 

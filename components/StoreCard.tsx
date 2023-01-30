@@ -1,7 +1,7 @@
 import type {Store} from "../types";
 
-import React from "react";
-import Image from "next/legacy/image";
+import Stack from "./Stack";
+import Text from "./Text";
 
 interface Props {
   store: Store;
@@ -9,31 +9,15 @@ interface Props {
 
 const StoreCard: React.FC<Props> = ({store}) => {
   return (
-    <div style={{display: "flex", alignItems: "flex-start", gap: 12, lineHeight: 1}}>
-      <Image
-        alt={store.title}
-        height={64}
-        layout="fixed"
-        objectFit="cover"
-        src={store.image}
-        width={64}
-      />
-      <div>
-        <h2 style={{marginBottom: 6}}>{store.title}</h2>
-        <p
-          style={{
-            marginBottom: 4,
-            WebkitLineClamp: 1,
-            display: "-webkit-box",
-            overflow: "hidden",
-            WebkitBoxOrient: "vertical",
-          }}
-        >
-          {store.description}
-        </p>
-        <p style={{color: "#999"}}>{store.address}</p>
-      </div>
-    </div>
+    <Stack gap={6}>
+      <Text color="light" size={20} weight="bold">
+        {store.title}
+      </Text>
+      <Text size={14}>{store.description}</Text>
+      <Text color="text-500" size={14}>
+        ※ {store.address}
+      </Text>
+    </Stack>
   );
 };
 
