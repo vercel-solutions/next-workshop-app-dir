@@ -15,4 +15,4 @@ And more.
 Our team decided to migrate this app from the Next.js basics workshop, from pages to app dir. You were assigned for the task.
 
 ## Resources
-You can find some snippets in the [snippets](./snippets) folder or slides in [here](https://docs.google.com/presentation/d/1rwlTXZvKuaqqFLfuyAwA3j3GZOOnT7r0YmI32Hmc_Rg?usp=sharing).
+You can find some snippets in the [snippets](./snippets) folder or slides in [here](https://docs.google.com/presentation/d/1UIscklSUjKq2DbRLT4qAGHbXEYhUZbEZs2BragMElfg/edit?usp=sharing).
