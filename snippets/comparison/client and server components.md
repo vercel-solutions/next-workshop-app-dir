@@ -68,4 +68,4 @@ export default function Page() {
 }
 ```
 
-You can read more about Server and Client Components in [here](https://beta.nextjs.org/docs/rendering/server-and-client-components).
+You can read more about Server and Client Components in the [official documentation](https://beta.nextjs.org/docs/rendering/server-and-client-components).
