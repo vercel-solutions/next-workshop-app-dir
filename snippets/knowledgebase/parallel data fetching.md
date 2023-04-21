@@ -8,11 +8,13 @@ import Albums from './albums';
 
 async function getArtist(username) {
   const res = await fetch(`https://api.example.com/artist/${username}`);
+
   return res.json();
 }
 
 async function getArtistAlbums(username) {
   const res = await fetch(`https://api.example.com/artist/${username}/albums`);
+
   return res.json();
 }
 

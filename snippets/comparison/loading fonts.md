@@ -1,5 +1,5 @@
 # Loading fonts using @next/font
-@next/font will automatically optimize your fonts (including custom fonts) and remove external network requests for improved privacy and performance.
+`@next/font` will automatically optimize your fonts (including custom fonts) and remove external network requests for improved privacy and performance.
 
 ## Before
 ```jsx

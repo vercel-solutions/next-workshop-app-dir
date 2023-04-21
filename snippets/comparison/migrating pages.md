@@ -55,10 +55,10 @@ export default function HomePage({ recentPosts }) {
 import HomePage from './HomePage';
 
 async function getPosts() {
-  const res = await fetch('https://...');
-  const posts = await res.json();
+  const posts = await fetch('https://...');
+  const data = await posts.json();
 
-  return posts;
+  return data;
 }
 
 export default async function Page() {

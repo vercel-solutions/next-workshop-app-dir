@@ -19,4 +19,7 @@ Dynamic data fetching options:
 - cache: `no-store`
 - revalidate: `0`
 
+Dynamic secment configurations:
+- dynamic = `force-dynamic`
+
 Since the returned value of these functions cannot be known ahead of time, using them in a layout or page will force dynamic rendering at request time.

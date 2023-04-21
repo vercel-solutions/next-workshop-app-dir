@@ -1,8 +1,8 @@
 # Fallback for getStaticPaths
-In the app directory the config.dynamicParams property controls how params outside of generateStaticParams are handled:
+In the app directory the `config.dynamicParams` property controls how params outside of `generateStaticParams` are handled (similar to `fallback` on `getStaticProps`):
 
-* true: (default) Dynamic segments not included in generateStaticParams are generated on demand.
-* false: Dynamic segments not included in generateStaticParams will return a 404.
+* `true`: (default) Dynamic segments not included in generateStaticParams are generated on demand.
+* `false`: Dynamic segments not included in generateStaticParams will return a 404.
 
 ## Before
 ```jsx

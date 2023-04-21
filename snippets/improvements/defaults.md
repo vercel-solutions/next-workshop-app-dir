@@ -5,7 +5,8 @@ By default, the app directory uses Server Components for all components, includi
 
 ### Before
 ```jsx
-/* /components/Counter.js */
+// /components/Counter.js
+
 import { useState } from "react"
 
 export default function Counter() {
@@ -23,7 +24,8 @@ export default function Counter() {
 
 ### After
 ```jsx
-/* /components/Counter.js */
+// /components/Counter.js
+
 'use client'
 
 import { useState } from "react"

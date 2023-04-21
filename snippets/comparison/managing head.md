@@ -1,5 +1,5 @@
 # Managing head
-In the pages directory, the next/head React component is used to manage <head> HTML elements such as title and meta . In the app directory, next/head is replaced with a new head.js special file.
+In the pages directory, the next/head React component is used to manage <head> HTML elements such as title and meta. In the app directory, next/head is replaced with a new meta object defined in a segment.
 
 ## Before
 ```jsx
@@ -28,6 +28,10 @@ export default function PostPage() {
 ```jsx
 // app/posts/[id]/page.js
 
+export const metadata = {
+  title: 'My Post',
+}
+
 export default function PostPage() {
   return (
     <main>
@@ -37,14 +41,19 @@ export default function PostPage() {
 }
 ```
 
-```jsx
-// app/posts/[id]/head.js
+The `generateMetadata` function can be used to fetch data and generate metadata based on the current segment dynamic params.
 
-export default function Head({params}) {
-  return (
-    <>
-      <title>My post - {params.id}</title>
-    </>
-  )
+```jsx
+// app/posts/[id]/page.js
+
+export async function generateMetadata({ params }) {
+  const post = await fetch(`https://.../${params.slug}`);
+  const data = await post.json();
+
+  return {
+    title: data.title,
+  };
 }
 ```
+
+You can see all the fields available for the metadata object in [here](https://beta.nextjs.org/docs/api-reference/metadata).
