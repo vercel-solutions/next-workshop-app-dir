@@ -14,8 +14,8 @@ One way to mitigate this issue is to use Serverless.
 The downside compared to Edge is that it can take hundreds of milliseconds for Serverless Functions to boot up before they begin processing requests. These increased overall processing times can incur greater usage costs and lead to higher bounce rates from visitors to your site.
 
 ## Segment runtime
-You can specify a runtime for individual route segments in your Next.js application.
+You can specify a runtime for individual route segments in your Next.js application as well as in route handlers and layouts.
 
 ```tsx
-export const runtime = 'experimental-edge'; // 'nodejs' (default) | 'experimental-edge'
+export const runtime = 'edge'; // 'nodejs' (default) | 'edge'
 ```

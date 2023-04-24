@@ -39,3 +39,5 @@ export default async function Page() {
   return ...;
 }
 ```
+
+Keep in mind that both of this functions are always executed at request time, which bypasses your segment cache configuration. You can read more about dynamic functions in [here](https://beta.nextjs.org/docs/rendering/static-and-dynamic-rendering#using-dynamic-functions).

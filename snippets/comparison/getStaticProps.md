@@ -1,5 +1,5 @@
 # Static Site Generation (getStaticProps)
-In the pages directory, the getStaticProps function is used to pre-render a page at build time. This function can be used to fetch data from an external API or directly from a database, and pass this data down to the entire page as it's being generated during the build.
+In the pages directory, the `getStaticProps` function is used to pre-render a page at build time. This function can be used to fetch data from an external API or directly from a database, and pass this data down to the entire page as it's being generated during the build.
 
 ## Before
 ```jsx

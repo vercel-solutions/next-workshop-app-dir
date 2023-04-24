@@ -12,6 +12,7 @@ You can add an special `loading.js` file for routes, while the route is loading,
 
 ```jsx
 // app/dashboard/loading.js
+
 export default function Loading() {
   return <p>Loading...</p>
 }

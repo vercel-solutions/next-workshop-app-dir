@@ -1,5 +1,5 @@
 # Link component
-The <Link> Component no longer requires manually adding an <a> tag as a child. The <Link> Component no longer requires manually adding an <a> tag as a child.
+The `<Link>` Component no longer requires manually adding an `<a>` tag as a child. The `<Link>` Component no longer requires manually adding an `<a>` tag as a child.
 
 ## Before
 ```jsx

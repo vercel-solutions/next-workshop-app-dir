@@ -5,7 +5,9 @@ Server and Client Components allow developers to build applications that span th
 Server Components allow developers to better leverage server infrastructure. When a route is loaded with Next.js, the initial HTML is rendered on the server. This HTML is then progressively enhanced in the browser, allowing the client to take over the application and add interactivity, by asynchronously loading the Next.js and React client-side runtime.
 
 ## Client components
-Client Components enable you to add client-side interactivity to your application. In Next.js, they are prerendered on the server and hydrated on the client. A component becomes a Client Component when using the "use client" directive at the top of the file (before any imports).
+Client Components enable you to add client-side interactivity to your application. In Next.js, they are prerendered on the server and hydrated on the client. You can think of Client Components as how components in the Next.js pages/ directory have always worked. A component becomes a Client Component when using the `"use client"` directive at the top of the file (before any imports).
+
+Once `"use client"` is defined in a file, all other modules imported into it, including child components, are considered part of the client bundle. `"use client"` does not need to be defined in every file. The Client module boundary only needs to be defined once, at the "entry point", for all modules imported into it to be considered a Client component.
 
 ```tsx
 // app/Counter.js
@@ -52,6 +54,8 @@ export default function ClientComponent() {
 You can still pass Server Components as children to Client Components. This will work:
 
 ```tsx
+// app/page.js
+
 import ClientComponent from "./ClientComponent";
 import ServerComponent from "./ServerComponent";
 
@@ -63,3 +67,5 @@ export default function Page() {
   );
 }
 ```
+
+You can read more about Server and Client Components in the [official documentation](https://beta.nextjs.org/docs/rendering/server-and-client-components).
