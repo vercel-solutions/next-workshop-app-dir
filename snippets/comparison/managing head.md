@@ -56,4 +56,4 @@ export async function generateMetadata({ params }) {
 }
 ```
 
-You can see all the fields available for the metadata object in [here](https://beta.nextjs.org/docs/api-reference/metadata).
+You can see all the fields available for the metadata object in [the official docs for Metadata](https://beta.nextjs.org/docs/api-reference/metadata).
