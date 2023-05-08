@@ -1,5 +1,5 @@
-# Loading fonts using @next/font
-`@next/font` will automatically optimize your fonts (including custom fonts) and remove external network requests for improved privacy and performance.
+# Loading fonts using next/font
+`next/font` will automatically optimize your fonts (including custom fonts) and remove external network requests for improved privacy and performance.
 
 ## Before
 ```jsx
@@ -26,7 +26,7 @@ export default function MyApp({Component, pageProps}) {
 ```jsx
 // app/layout.js
 
-import { Inter } from '@next/font/google';
+import { Inter } from 'next/font/google';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -45,7 +45,7 @@ Automatically self-host any Google Font. Fonts are included in the deployment an
 ```jsx
 // app/layout.js
 
-import localFont from '@next/font/local';
+import localFont from 'next/font/local';
 
 const myFont = localFont({ src: './my-font.woff2' });
 

@@ -19,7 +19,7 @@ export default function Dashboard({ data }) {
 
 ## After
 ```jsx
-// app/dashboard.js
+// app/dashboard/page.js
 
 async function fetchData() {
   const res = await fetch(`https://.../data`, { cache: 'no-store' });
