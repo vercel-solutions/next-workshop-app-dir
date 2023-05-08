@@ -16,6 +16,7 @@ import { cache } from 'react';
 
 export const getUser = cache(async (id) => {
   const user = await db.user.findUnique({ id });
+
   return user;
 });
 ```
@@ -27,7 +28,8 @@ import { getUser } from '@utils/getUser';
 
 export default async function UserLayout({ params: { id } }) {
   const user = await getUser(id);
-  // ...
+
+  return (...)
 }
 ```
 
@@ -38,7 +40,8 @@ import { getUser } from '@utils/getUser';
 
 export default async function UserLayout({params: { id }}) {
   const user = await getUser(id);
-  // ...
+
+  return (...)
 }
 ```
 
