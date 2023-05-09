@@ -38,7 +38,7 @@ export default async function UserLayout({ params: { id } }) {
 
 import { getUser } from '@utils/getUser';
 
-export default async function UserLayout({params: { id }}) {
+export default async function UserPage({params: { id }}) {
   const user = await getUser(id);
 
   return (...)
