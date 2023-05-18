@@ -1,5 +1,5 @@
-# Managing head
-In the pages directory, the next/head React component is used to manage <head> HTML elements such as title and meta. In the app directory, next/head is replaced with a new meta object defined in a segment.
+# Managing metadata
+In the pages directory, the next/head React component is used to manage <head> HTML elements such as title and meta. In the app directory, next/head is replaced with a new metadata object defined in a segment.
 
 ## Before
 ```jsx
