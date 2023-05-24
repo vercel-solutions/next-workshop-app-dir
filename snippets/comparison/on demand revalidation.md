@@ -33,7 +33,11 @@ export async function GET(request) {
 ```js
 // app/[post]/page.js
 
-fetch(url, { next: { tags: [post] } });
+export default async function PostPage({params: {post}}) {
+  const data = await fetch('...', { next: { tags: [post] } });
+
+  return (...);
+}
 
 // app/api/revalidate/route.js
 
