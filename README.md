@@ -22,5 +22,9 @@ Don't forget to:
 
 Also, the information of the store won't change. We also want to be sure the ratings are always up to date and we can revalidate the schedule information every 15 minutes.
 
+## Bonus
+* Re-implement the `rating` endpoint as a route handler.
+* Re-implement the `visitors` endpoint as a route handler using a DB.
+
 ## Resources
 You can find some snippets in the [snippets](./snippets) folder or slides in [here](https://docs.google.com/presentation/d/1UIscklSUjKq2DbRLT4qAGHbXEYhUZbEZs2BragMElfg/edit?usp=sharing).
