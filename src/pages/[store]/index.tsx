@@ -1,4 +1,4 @@
-import type {GetStaticPaths, GetStaticProps, NextPage} from "next";
+import type {GetStaticPaths, GetStaticProps, InferGetStaticPropsType} from "next";
 import type {Schedule as ISchedule, Store} from "../../types";
 
 import {useEffect, useState} from "react";
@@ -6,15 +6,13 @@ import Link from "next/link";
 
 import api from "../../api";
 import StoreCard from "../../components/StoreCard";
-import Schedule from "../../components/Schedule";
-import Visitors from "../../components/Visitors";
-import Stack from "../../components/Stack";
 
-type Props = {
-  store: Store;
-};
-
-export const getStaticProps: GetStaticProps<Props, {store: string}> = async ({params}) => {
+export const getStaticProps: GetStaticProps<
+  {
+    store: Store;
+  },
+  {store: string}
+> = async ({params}) => {
   const store = await api.store.fetch(params?.store!);
 
   return {
@@ -29,7 +27,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-const StorePage: NextPage<Props> = ({store}) => {
+const StorePage = ({store}: InferGetStaticPropsType<typeof getStaticProps>) => {
   const [visitors, setVisitors] = useState<number>(0);
   const [schedule, setSchedule] = useState<ISchedule[]>([]);
 
@@ -41,17 +39,24 @@ const StorePage: NextPage<Props> = ({store}) => {
   }, [store.id]);
 
   return (
-    <Stack>
+    <div className="flex flex-col gap-6">
       <StoreCard store={store} />
-      <Visitors>{visitors}</Visitors>
-      <Schedule schedule={schedule} />
-      <nav
-        style={{borderTop: "1px solid var(--dark-500)", paddingTop: 24, display: "flex", gap: 24}}
-      >
+      <span className="font-bold text-white">Visitors: {visitors}</span>;
+      <div className="flex flex-col">
+        {schedule.map(({date, start, end}, index) => (
+          <div key={index} className="flex flex-row">
+            <span className="font-bold">{date}</span>:
+            <span className="opacity-50">
+              {start} - {end}
+            </span>
+          </div>
+        ))}
+      </div>
+      <nav className="border-t-1 border-primary-500 pt-6 flex gap-6">
         <Link href={`/${store.id}`}>☀ schedule</Link>
         <Link href={`/${store.id}/rating`}>★ rating</Link>
       </nav>
-    </Stack>
+    </div>
   );
 };
 

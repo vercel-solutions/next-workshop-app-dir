@@ -1,20 +1,17 @@
 import {useState} from "react";
 
-import Text from "./Text";
-
-type Props = {
+const Rating = ({
+  value: initialValue,
+  onChange,
+}: {
   value: number;
   onChange?: (value: number) => void;
-};
-
-const Rating: React.FC<Props> = ({value: initialValue, onChange}) => {
+}) => {
   const [hoverValue, setHoverValue] = useState<null | number>(null);
 
   return (
-    <Text
-      color="white"
-      size={32}
-      style={{lineHeight: 1, cursor: "pointer"}}
+    <span
+      className="text-white cursor-pointer leading-none text-3xl"
       onMouseLeave={() => setHoverValue(null)}
     >
       {"★"
@@ -30,7 +27,7 @@ const Rating: React.FC<Props> = ({value: initialValue, onChange}) => {
             {star}
           </span>
         ))}
-    </Text>
+    </span>
   );
 };
 

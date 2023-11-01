@@ -1,17 +1,14 @@
-import type {GetStaticProps, NextPage} from "next";
+import type {GetStaticProps, InferGetStaticPropsType} from "next";
 import type {Store} from "../types";
 
 import Link from "next/link";
 
 import api from "../api";
 import StoreCard from "../components/StoreCard";
-import Stack from "../components/Stack";
 
-type Props = {
+export const getStaticProps: GetStaticProps<{
   stores: Store[];
-};
-
-export const getStaticProps: GetStaticProps<Props> = async () => {
+}> = async () => {
   const stores: Store[] = await api.store.list();
 
   return {
@@ -19,15 +16,15 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   };
 };
 
-const HomePage: NextPage<Props> = ({stores}) => {
+const HomePage = ({stores}: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <Stack>
+    <div className="flex flex-col">
       {stores.map((store) => (
         <Link key={store.id} href={`/${store.id}`}>
           <StoreCard store={store} />
         </Link>
       ))}
-    </Stack>
+    </div>
   );
 };
 

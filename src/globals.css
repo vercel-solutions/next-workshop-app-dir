@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  @apply bg-primary-950 text-white/90;
+}
