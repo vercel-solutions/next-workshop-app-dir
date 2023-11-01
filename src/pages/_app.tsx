@@ -14,7 +14,7 @@ const App: React.FC<AppProps> = ({Component, pageProps}) => {
       <Head>
         <title>Next.js app directory workshop</title>
       </Head>
-      <div className="flex flex-col items-stretch gap-6 min-h-vh max-w-4xl mx-auto p-6">
+      <div className="flex flex-col items-stretch gap-6 min-h-screen max-w-4xl mx-auto p-6">
         <header>
           <Card>
             <Link href="/">
@@ -36,7 +36,7 @@ const App: React.FC<AppProps> = ({Component, pageProps}) => {
 
         <footer>
           <Card>
-            <div className="flex flex-row items-center justify-between p-3">
+            <div className="flex flex-row items-center justify-between p-3 text-white/70">
               <div className="flex flex-row items-center gap-1">
                 <span>By</span> <Image alt="Vercel Logo" height={16} src="/vercel.svg" width={72} />
               </div>

@@ -18,7 +18,7 @@ export const getStaticProps: GetStaticProps<{
 
 const HomePage = ({stores}: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col gap-6">
       {stores.map((store) => (
         <Link key={store.id} href={`/${store.id}`}>
           <StoreCard store={store} />

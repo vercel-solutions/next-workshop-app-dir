@@ -41,20 +41,24 @@ const StorePage = ({store}: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <div className="flex flex-col gap-6">
       <StoreCard store={store} />
-      <span className="font-bold text-white">Visitors: {visitors}</span>;
+      <span className="font-bold text-white">Visitors: {visitors}</span>
       <div className="flex flex-col">
         {schedule.map(({date, start, end}, index) => (
-          <div key={index} className="flex flex-row">
+          <div key={index} className="flex flex-row gap-2">
             <span className="font-bold">{date}</span>:
-            <span className="opacity-50">
+            <span className="text-white/70">
               {start} - {end}
             </span>
           </div>
         ))}
       </div>
-      <nav className="border-t-1 border-primary-500 pt-6 flex gap-6">
-        <Link href={`/${store.id}`}>☀ schedule</Link>
-        <Link href={`/${store.id}/rating`}>★ rating</Link>
+      <nav className="border-primary-700 border-t pt-6 flex gap-6">
+        <Link className="underline underline-offset-2" href={`/${store.id}`}>
+          ☀ schedule
+        </Link>
+        <Link className="underline underline-offset-2" href={`/${store.id}/rating`}>
+          ★ rating
+        </Link>
       </nav>
     </div>
   );

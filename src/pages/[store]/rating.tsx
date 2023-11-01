@@ -45,11 +45,11 @@ const StoreRatingPage = ({store}: InferGetStaticPropsType<typeof getStaticProps>
   }, [store.id]);
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col gap-6">
       <StoreCard store={store} />
-      <span className="font-bold text-white">Visitors: {visitors}</span>;
+      <span className="font-bold text-white">Visitors: {visitors}</span>
       <Rating value={rating} onChange={handleRatingChange} />
-      <nav className="border-t-1 border-primary-500 pt-6 flex gap-6">
+      <nav className="border-primary-700 border-t pt-6 flex gap-6">
         <Link href={`/${store.id}`}>☀ schedule</Link>
         <Link href={`/${store.id}/rating`}>★ rating</Link>
       </nav>
