@@ -32,8 +32,11 @@ const StoreRatingPage = ({store}: InferGetStaticPropsType<typeof getStaticProps>
   const [visitors, setVisitors] = useState<number>(0);
   const [rating, setRating] = useState<number>(0);
 
-  async function handleRatingChange(value: number) {
-    const rating: number = await api.store.rating.update(store.id, value);
+  async function handleRatingSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const ratingValue = new FormData(event.currentTarget).get("rating");
+    const rating: number = await api.store.rating.update(store.id, Number(ratingValue));
 
     setRating(rating);
     alert("Thank you for your feedback!");
@@ -48,7 +51,9 @@ const StoreRatingPage = ({store}: InferGetStaticPropsType<typeof getStaticProps>
     <div className="flex flex-col gap-6">
       <StoreCard store={store} />
       <span className="font-bold text-white">Visitors: {visitors}</span>
-      <Rating value={rating} onChange={handleRatingChange} />
+      <form onSubmit={handleRatingSubmit}>
+        <Rating name="rating" value={rating} />
+      </form>
       <nav className="border-primary-700 border-t pt-6 flex gap-6">
         <Link href={`/${store.id}`}>☀ schedule</Link>
         <Link href={`/${store.id}/rating`}>★ rating</Link>
