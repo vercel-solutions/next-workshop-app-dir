@@ -1,7 +1,3 @@
-import type {AppProps} from "next/app";
-
-import {Open_Sans} from "next/font/google";
-import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -9,20 +5,10 @@ import Card from "../components/Card";
 
 import "../globals.css";
 
-const opensans = Open_Sans({
-  subsets: ["latin"],
-  variable: "--font-open-sans",
-});
-
-const App: React.FC<AppProps> = ({Component, pageProps}) => {
+const RootLayout = ({children}: {children: React.ReactNode}) => {
   return (
-    <>
-      <Head>
-        <title>Next.js app directory workshop</title>
-      </Head>
-      <div
-        className={`${opensans.className} font-sans flex flex-col items-stretch gap-6 min-h-screen max-w-4xl mx-auto p-6`}
-      >
+    <html lang="en">
+      <body className="font-sans flex flex-col items-stretch gap-6 min-h-screen max-w-4xl mx-auto p-6">
         <header>
           <Card>
             <Link href="/">
@@ -36,9 +22,7 @@ const App: React.FC<AppProps> = ({Component, pageProps}) => {
 
         <main className="flex-1">
           <Card>
-            <section className="p-4">
-              <Component {...pageProps} />
-            </section>
+            <section className="p-4">{children}</section>
           </Card>
         </main>
 
@@ -55,9 +39,9 @@ const App: React.FC<AppProps> = ({Component, pageProps}) => {
             </div>
           </Card>
         </footer>
-      </div>
-    </>
+      </body>
+    </html>
   );
 };
 
-export default App;
+export default RootLayout;
