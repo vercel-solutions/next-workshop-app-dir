@@ -34,7 +34,7 @@ const RootLayout = ({children}: {children: React.ReactNode}) => {
               </div>
               <div className="flex flex-row items-center gap-1">
                 <Image alt="Next.js logo" height={32} src="/nextjs.svg" width={32} />
-                <p>App Directory workshop</p>
+                <p>App Router workshop</p>
               </div>
             </div>
           </Card>
