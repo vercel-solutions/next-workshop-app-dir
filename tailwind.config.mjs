@@ -5,7 +5,7 @@ const config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-open-sans)", "sans-serif"],
+        sans: ["var(--font-open-sans)"],
       },
       colors: {
         primary: colors.stone,
