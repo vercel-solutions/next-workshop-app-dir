@@ -1,8 +1,8 @@
 - [ ] Have at least one error page
 - [ ] Index throws a CORS error
-- [ ] Use Open Sans font on body
-- [ ] Move what to the server whatever is possible and relevant
 - [ ] Show list of stores on index using server components
+- [ ] Use Open Sans font on body
+- [ ] Move to the server whatever is possible and relevant
 - [ ] Show metadata for index and details
 - [ ] Revalidate schedule data every 15 minutes
 - [ ] Revalidate rating data every 5 minutes
